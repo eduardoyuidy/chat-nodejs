@@ -6,5 +6,7 @@ app.listen(3000, function () {
 });
 
 io.on('connect', function (socket) {
-    console.log('Um novo usuário entrou no bate-papo');
+    socket.on('register', function (name) {
+        console.log(name + ' entrou no bate-papo');
+    });
 });
