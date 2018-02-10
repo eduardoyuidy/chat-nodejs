@@ -15,3 +15,7 @@ socket.on('connect', function () {
         }
     });
 });
+
+socket.on('broadcast', function (message) {
+    console.log(message);
+});

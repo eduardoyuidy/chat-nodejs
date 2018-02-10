@@ -11,6 +11,6 @@ io.on('connect', function (socket) {
     });
 
     socket.on('message', function (message) {
-        console.log(message);
+        io.emit('broadcast', message);
     });
 });
