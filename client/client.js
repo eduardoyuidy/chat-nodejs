@@ -24,3 +24,4 @@ socket.on('broadcast', function (user, message) {
         console.log(user.username + ': ' + message);
     }
 });
+
