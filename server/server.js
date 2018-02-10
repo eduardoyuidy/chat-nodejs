@@ -6,11 +6,12 @@ app.listen(3000, function () {
 });
 
 io.on('connect', function (socket) {
-    socket.on('register', function (name) {
-        console.log(name + ' entrou no bate-papo');
+    socket.on('register', function (user) {
+        socket.user = user;
+        console.log(socket.user.username + ' entrou no bate-papo');
     });
 
     socket.on('message', function (message) {
-        io.emit('broadcast', message);
+        io.emit('broadcast', socket.user, message);
     });
 });
