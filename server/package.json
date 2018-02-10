@@ -15,6 +15,7 @@
   "author": "Rubens Dos Santos Filho",
   "license": "MIT",
   "dependencies": {
+    "colors": "^1.1.2",
     "socket.io": "^2.0.4"
   }
 }
