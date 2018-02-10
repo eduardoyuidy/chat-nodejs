@@ -15,6 +15,7 @@
   "author": "Rubens Dos Santos Filho",
   "license": "MIT",
   "dependencies": {
-    "socket.io": "^2.0.4"
+    "socket.io": "^2.0.4",
+    "uuid": "^3.2.1"
   }
 }
