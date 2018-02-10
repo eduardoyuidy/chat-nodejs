@@ -8,4 +8,10 @@ socket.on('connect', function () {
     readline.question('Informe seu nome de usuário: ', function (name) {
         socket.emit('register', name);
     });
+
+    readline.on('line', function (input) {
+        if (input.length > 0) {
+            socket.emit('message', input);
+        }
+    });
 });
