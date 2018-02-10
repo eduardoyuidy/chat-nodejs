@@ -4,11 +4,12 @@ var readline = require('readline').createInterface({
     output: process.stdout
 });
 var uuidv1 = require('uuid/v1');
+var currUser = { id: uuidv1(), username: '' };
 
 socket.on('connect', function () {
     readline.question('Informe seu nome de usuário: ', function (name) {
-        socket.user = { id: uuidv1(), username: name };
-        socket.emit('register', socket.user);
+        currUser.username = name;
+        socket.emit('register', currUser);
     });
 
     readline.on('line', function (input) {
@@ -19,7 +20,7 @@ socket.on('connect', function () {
 });
 
 socket.on('broadcast', function (user, message) {
-    if (user.id !== socket.user.id) {
-        console.log(socket.user.username + ': ' + message);
+    if (user.id !== currUser.id) {
+        console.log(user.username + ': ' + message);
     }
 });
