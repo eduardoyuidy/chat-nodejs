@@ -1,7 +1,6 @@
 var args = process.argv.slice(2);
 
-function sayHello(nome) {
+// IIFE (Immediately Invoked Function Expression)
+(function sayHello(nome) {
   console.log('Hello ' + nome + '!');
-}
-
-sayHello(args[0] === undefined ? 'World' : args[0]);
+})(args[0] === undefined ? 'World' : args[0]);
