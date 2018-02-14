@@ -1,6 +1,8 @@
 var args = process.argv.slice(2);
 
+// IIFE (Immediately Invoked Function Expression)
 // Arrow Function
-(nome => {
+// Default Parameter Values
+((nome='World') => {
   console.log('Hello ' + nome + '!');
-})(args[0] === undefined ? 'World' : args[0]);
+})(args[0]);
