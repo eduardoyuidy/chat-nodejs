@@ -16,8 +16,6 @@ socket.on('connect', function () {
     readline.question('Informe seu nome de usuário: '.bgRed, function (name) {
         currUser.username = name || 'anônimo';
         socket.emit('register', currUser);
-
-        console.log('==== Para enviar mensagem direcionada: ">>>" + NOME_USUARIO + <ESPAÇO> + <SUA MENSAGEM> ===');
     });
 
     readline.on('line', function (input) {
@@ -29,6 +27,6 @@ socket.on('connect', function () {
 
 socket.on('broadcast', function (user, message) {
     if (user.id !== currUser.id) {
-        console.log(colors[user.color](user.username.toUpperCase() + ': ' + message));
+        console.log(colors[user.color](user.username + ': ' + message));
     }
 });
