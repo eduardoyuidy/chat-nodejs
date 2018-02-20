@@ -5,7 +5,7 @@ var readline = require('readline').createInterface({
 });
 var uuidv1 = require('uuid/v1');
 var colors = require('colors');
-var userColors = ['black', 'red', 'green', 'yellow', 'blue', 'magenta', 'cyan', 'white', 'gray', 'grey'];
+var userColors = ['red', 'green', 'yellow', 'blue', 'magenta', 'cyan', 'white', 'gray', 'grey'];
 var currUser = {
     id: uuidv1(),
     username: '',
@@ -26,7 +26,6 @@ socket.on('connect', function () {
 });
 
 socket.on('broadcast', function (user, message) {
-    if (user.id !== currUser.id) {
-        console.log(colors[user.color](user.username + ': ' + message));
-    }
+    
+    console.log(colors[user.color](user.username + ': ' + message));    
 });
