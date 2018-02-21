@@ -2,7 +2,7 @@ var app = require('http').createServer();
 var io = require('socket.io')(app);
 var colors = require('colors');
 
-let userList = [];
+var userList = [];
 
 app.listen(3000, function () {
     console.log('Bem vindo ao bate papo Coffee&Code JOI!'.bgWhite);
@@ -18,11 +18,11 @@ io.on('connect', function (socket) {
         });
     });
 
-    socket.on('message', function (message) {
+    socket.on('message', function (message) {        
 
-        userList.forEach(function (usuario) {                
+        userList.forEach(function (usuario) { 
 
-            if (usuario.name.toLowerCase() !== socket.user.username.toLowerCase()) {
+            if (usuario.id !== socket.id) {
                 
                 io.to(usuario.id).emit('broadcast', socket.user, message);
             }

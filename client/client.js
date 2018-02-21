@@ -12,7 +12,7 @@ var currUser = {
     color: userColors[Math.floor(Math.random() * userColors.length)]
 };
 
-socket.on('connect', function () {
+socket.on('connect', function () {    
     readline.question('Informe seu nome de usuário: '.bgRed, function (name) {
         currUser.username = name || 'anônimo';
         socket.emit('register', currUser);
